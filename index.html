@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Eyong Tony Defang</title>
+<meta name="description" content="Eyong Tony Defang — data science student at UMGC and solo founder based in Germantown, MD.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap">
+
+<style>
+  /* Layout: editorial single-column, content-led, no decorative chrome */
+  :root {
+    --bg: #fff;
+    --fg: #111;
+    --fg-secondary: #555;
+    --fg-tertiary: #888;
+    --rule: #d4d4d4;
+    --tint: #f6f5f3;
+    --accent: #1a4d2e;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #111;
+      --fg: #e5e5e2;
+      --fg-secondary: #aaa;
+      --fg-tertiary: #777;
+      --rule: #2a2a2a;
+      --tint: #1a1a18;
+      --accent: #5ea87a;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #111;
+    --fg: #e5e5e2;
+    --fg-secondary: #aaa;
+    --fg-tertiary: #777;
+    --rule: #2a2a2a;
+    --tint: #1a1a18;
+    --accent: #5ea87a;
+    color-scheme: dark;
+  }
+
+  * { margin: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration-color: var(--rule); text-underline-offset: 3px; }
+  a:hover { color: var(--accent); text-decoration-color: currentColor; }
+
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding-block: 3rem 5rem;
+  }
+
+  /* Header */
+  header {
+    padding-bottom: 3rem;
+  }
+  header h1 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(2.6rem, 6vw, 3.8rem);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+  }
+  header .intro {
+    font-size: 1rem;
+    color: var(--fg-secondary);
+    max-width: 540px;
+    line-height: 1.7;
+  }
+
+  /* Sections */
+  .section {
+    border-top: 1px solid var(--rule);
+    padding: 2.5rem 0;
+  }
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--fg-tertiary);
+    margin-bottom: 1.75rem;
+  }
+
+  /* Project entries — editorial, not cards */
+  .entry {
+    margin-bottom: 2.25rem;
+  }
+  .entry:last-child { margin-bottom: 0; }
+  .entry h3 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-weight: 400;
+    font-size: 1.45rem;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.35rem;
+  }
+  .entry .type {
+    font-size: 0.78rem;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  .entry p {
+    color: var(--fg-secondary);
+    font-size: 0.92rem;
+    line-height: 1.7;
+    max-width: 600px;
+  }
+  .entry .stack {
+    margin-top: 0.6rem;
+    font-size: 0.82rem;
+    color: var(--fg-tertiary);
+  }
+  .entry .nums {
+    display: flex;
+    gap: 2rem;
+    margin-top: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .entry .num {
+    font-variant-numeric: tabular-nums;
+  }
+  .entry .num strong {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: var(--fg);
+    display: block;
+    line-height: 1.2;
+  }
+  .entry .num span {
+    font-size: 0.72rem;
+    color: var(--fg-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* Impact — text-first, no cards, no icons */
+  .impact-entry {
+    margin-bottom: 1.5rem;
+  }
+  .impact-entry:last-child { margin-bottom: 0; }
+  .impact-entry h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+  }
+  .impact-entry .when {
+    font-size: 0.78rem;
+    color: var(--fg-tertiary);
+    margin-bottom: 0.35rem;
+  }
+  .impact-entry p {
+    color: var(--fg-secondary);
+    font-size: 0.9rem;
+    line-height: 1.65;
+    max-width: 580px;
+  }
+
+  /* Skills — compact horizontal listing */
+  .skill-row {
+    margin-bottom: 1.25rem;
+  }
+  .skill-row:last-child { margin-bottom: 0; }
+  .skill-row h3 {
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+  .skill-row p {
+    color: var(--fg-secondary);
+    font-size: 0.9rem;
+  }
+
+  /* Education */
+  .edu {
+    margin-bottom: 1.25rem;
+  }
+  .edu:last-child { margin-bottom: 0; }
+  .edu h3 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-weight: 400;
+    font-size: 1.15rem;
+    line-height: 1.3;
+  }
+  .edu .school {
+    font-size: 0.88rem;
+    color: var(--fg-secondary);
+  }
+  .edu .meta {
+    font-size: 0.82rem;
+    color: var(--fg-tertiary);
+    margin-top: 0.15rem;
+  }
+
+  /* Contact */
+  .contact-line {
+    font-size: 0.92rem;
+    color: var(--fg-secondary);
+    margin-bottom: 0.35rem;
+  }
+  .contact-line strong {
+    color: var(--fg);
+    font-weight: 500;
+  }
+
+  /* Footer */
+  .foot {
+    border-top: 1px solid var(--rule);
+    margin-top: 1rem;
+    padding-top: 2rem;
+    font-size: 0.78rem;
+    color: var(--fg-tertiary);
+  }
+
+  @media (max-width: 500px) {
+    header h1 { margin-bottom: 1rem; }
+    .section { padding: 2rem 0; }
+    .entry .nums { gap: 1.25rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <header>
+    <h1>Eyong Tony Defang</h1>
+    <p class="intro">Data science student at UMGC and solo founder based in Germantown, MD. I build consumer products grounded in statistical rigor and use data to fight food and housing insecurity on campus. Fluent in English and French.</p>
+  </header>
+
+  <div class="section">
+    <div class="section-label">Projects</div>
+
+    <div class="entry">
+      <h3>DealVault</h3>
+      <div class="type">Consumer product</div>
+      <p>Discount-code discovery platform for food delivery apps. Unlike affiliate coupon sites, DealVault shows real success rates per code and never rewrites affiliate links. Revenue comes from merchant advertising, not commissions. Built for acquisition by fintech and delivery companies.</p>
+      <div class="stack">PostgreSQL, Redis, JWT/Argon2 auth, Python, REST API</div>
+      <div class="nums">
+        <div class="num"><strong>~13ms</strong><span>p95 latency</span></div>
+        <div class="num"><strong>99%</strong><span>test coverage</span></div>
+        <div class="num"><strong>6-gate</strong><span>validation pipeline</span></div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <h3><a href="https://github.com/edefang/price-discrimination-research">Price Discrimination Detector</a></h3>
+      <div class="type">Independent research</div>
+      <p>Playwright-based multi-persona scraper that simulates shopper profiles across locale, timezone, geolocation, and device. Statistical anomaly detection flags price gaps above 5% of cohort median.</p>
+      <div class="stack">Playwright, SQLite, Python</div>
+    </div>
+
+    <div class="entry">
+      <h3>Cardiovascular RCT Study</h3>
+      <div class="type">Academic research</div>
+      <p>Simulated 3-arm randomized controlled trial comparing Dietitian vs. AI Assistant vs. Control for blood pressure and cholesterol outcomes across ~300 participants. Real Kaggle cardiovascular data with synthetic follow-up grounded in published meta-analyses.</p>
+      <div class="stack">R, Python, statistical modeling, RCT design</div>
+    </div>
+
+    <div class="entry">
+      <h3>Wellness Center Impact Analytics</h3>
+      <div class="type">Community data infrastructure</div>
+      <p>Built the tracking and analysis system for Montgomery College's Wellness Center to measure how food access programs serve students over time. The pipeline tracks visits and program usage to support applications for expanded funding.</p>
+      <div class="stack">Data pipelines, dashboards, impact measurement</div>
+    </div>
+
+    <div class="entry">
+      <h3>Small Business Analytics Consulting</h3>
+      <div class="type">Business venture</div>
+      <p>Building a consulting practice for small businesses in Montgomery, Frederick, and Prince George's Counties. Power BI dashboards and simplified reporting, starting with the restaurant vertical.</p>
+      <div class="stack">Power BI, SQL</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Community Work</div>
+
+    <div class="impact-entry">
+      <h3>Housing insecurity scholarships</h3>
+      <div class="when">Montgomery College, Summer 2025</div>
+      <p>Helped raise scholarship funds for students at risk of losing housing. Connected students directly with housing resources and support services on and off campus.</p>
+    </div>
+
+    <div class="impact-entry">
+      <h3>Food access programs</h3>
+      <div class="when">Montgomery College Wellness Center</div>
+      <p>Helped students access food through the campus Wellness Center. Worked with the broader community to secure food resources, connecting people with pantries, programs, and emergency supplies.</p>
+    </div>
+
+    <div class="impact-entry">
+      <h3>Student visit tracking and analysis</h3>
+      <div class="when">Montgomery College Wellness Center</div>
+      <p>Set up the data tracking and analysis for student visits to the Wellness Center. Measured how food access numbers have changed over time and used the analysis to build the case for more funding.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Skills</div>
+
+    <div class="skill-row">
+      <h3>Programming</h3>
+      <p>Python, SQL, R, JavaScript</p>
+    </div>
+    <div class="skill-row">
+      <h3>Machine learning</h3>
+      <p>scikit-learn, PyTorch, TensorFlow, statistical modeling</p>
+    </div>
+    <div class="skill-row">
+      <h3>Data and visualization</h3>
+      <p>Power BI, Tableau, PostgreSQL, data pipelines</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Education</div>
+
+    <div class="edu">
+      <h3>B.S. Data Science</h3>
+      <div class="school">University of Maryland Global Campus</div>
+      <div class="meta">In progress, 3.8 GPA, 99 of 120 credits completed</div>
+    </div>
+    <div class="edu">
+      <h3>A.S. Data Science</h3>
+      <div class="school">Montgomery College</div>
+      <div class="meta">Completed August 2026, 3.67 GPA, graduated with honors, Phi Theta Kappa</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Contact</div>
+    <p class="contact-line"><strong>Email</strong> &nbsp; <a href="mailto:defangeyong402@gmail.com">defangeyong402@gmail.com</a></p>
+    <p class="contact-line"><strong>GitHub</strong> &nbsp; <a href="https://github.com/edefang">github.com/edefang</a></p>
+    <p class="contact-line"><strong>Location</strong> &nbsp; Germantown, MD</p>
+    <p class="contact-line" style="margin-top:0.75rem; color: var(--fg-tertiary); font-size: 0.85rem;">Open to data science internships, entry-level roles, and collaboration. Willing to relocate.</p>
+  </div>
+
+  <div class="foot">
+    &copy; 2026 Eyong Tony Defang
+  </div>
+
+</div>
+
+</body>
+</html>
